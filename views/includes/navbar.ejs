@@ -21,6 +21,7 @@
       <div class="navbar-nav mx-auto my-2 my-md-0">
         <form class="d-flex search-bar border rounded-pill p-1 bg-white shadow-sm" role="search" action="/listings/search" method="GET">
           <input
+          id="searchInput"
             class="form-control border-0 bg-transparent ps-3 py-1 shadow-none"
             type="search"
             name="q"
@@ -28,6 +29,7 @@
             aria-label="Search"
             style="min-width: 200px;"
           />
+          <div id="suggestions" class="list-group position-absolute"></div>
           <button class="btn btn-danger rounded-pill px-3" type="submit">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
@@ -36,9 +38,8 @@
 
       <div class="navbar-nav align-items-md-center gap-2">
         <a class="nav-link fw-semibold text-dark d-none d-lg-block" href="/listings/new">
-          Travora your home
+          Add new Listing
         </a>
-        <a class="nav-link d-lg-none" href="/listings/new">Add new Listing</a>
 
         <% if(!currUser){ %>
           <div class="d-flex gap-2">
@@ -104,4 +105,20 @@
   .form-control:focus {
     box-shadow: none !important;
   }
+
+  #suggestions {
+  top: 100%;
+  width: auto;
+  z-index: 2000;
+}
+#suggestions .list-group-item {
+  background-color: #2f2f2f;   /* dark grey */
+  color: #ffffff;              /* text color */
+  border: none;
+}
+
+#suggestions .list-group-item:hover {
+  background-color: #444444;   /* lighter on hover */
+  color: #fff;
+}
 </style>
