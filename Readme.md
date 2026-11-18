@@ -176,6 +176,10 @@ Visit:
 http://localhost:3000
 ```
 
+## ✅ Continuous Integration
+
+GitHub Actions runs on pushes and pull requests to `main`. The workflow uses Node.js 24, restores the npm cache, installs the lockfile with `npm ci`, checks tracked JavaScript syntax, and runs `npm test`. The test suite uses isolated mocks, so CI does not need MongoDB, Cloudinary, Mapbox, or application secrets.
+
 ---
 
 ## 📸 Key Functionalities
